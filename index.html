@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Front End Quiz</title>
 
     <!-- Bootstrap core CSS -->
 	<!-- Latest compiled and minified CSS -->
@@ -17,30 +17,62 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate.css">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700' rel='stylesheet' type='text/css'>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
 
     <div class="container">
 
-      <div class="starter-template">
-        <h1>Welcome to the Quiz!</h1>
-        <p class="lead">This is where the intro to the quiz will be.</p>
+      <div class="heading">
+        <h1 class="animated wobble">Intro to Dev Quiz</h1>
+        <p class="lead">Are you ready to answer some simple questions about Front End Development? <b>Let's <em>GO!</em></b></p> <!--should disappear once 'start game' is pressed'-->
+      </div>
+
+      <div class="start-btn">
+        <!--here we need the start game button, should animate on hover-->
+        <button type="button" class="btn btn-default">I'm ready!</button>
+      </div>
+
+      <div class="question-area">
+      	<h3>
+      	<!--this is where the questions will need to populate - should show 'start game' button first that disappers and reveals questions after start game is pressed-->
+      	</h3>
+      </div>
+
+      <div class="answer-list">
+      	<!--here we need the radio buttons and corresponding answer choices-->
+        <ul class="answer-choices"></ul>
+      </div>
+
+      <div class="submit-btn">
+        <!--here we need the submit button, should animate on hover-->
+        <button type="button" class="btn btn-default">Submit</button>
+      </div>
+
+      <div class="feedback">
+      	<!--here we need the feedback to show up-->
+      	<div class="alert alert-success animated fadeIn" role="alert">That's correct, great job!</div>
+      	<div class="alert alert-danger animated fadeIn" role="alert">Sorry, try again on the next round.</div>
+
+      </div>
+
+      <div class="next-btn">
+        <!--here we need the next question button, should animate on hover-->
+        <button type="button" class="btn btn-default">Next</button>
+      </div>
+
+      <div class="answer-status">
+        <!--here we need a numbered set of four separate horizontal icons to represent each question and animate accordingly-->
+      </div>
+
+      <div class="start-over-btn">
+      	<!--here we need the start-over button to appear after the last question-->
+      	<button type="button" class="btn btn-default">Start Over</button>
       </div>
 
     </div><!-- /.container -->
@@ -50,8 +82,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
