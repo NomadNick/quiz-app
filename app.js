@@ -43,23 +43,23 @@ var answerChoices1 = '<li class="animated fadeIn"><input type="radio" id="radioO
 					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer1"/>'+question1.answerChoice3+'</li>';
 
 var questionChoice2 = '<h3>'+question2.question+'</h3>';
-var answerChoices2 = '<li><input type="radio" id="radioOne" name="answer2"/>'+question2.answerChoice1+'</li>'+
-					 '<li><input type="radio" id="radioTwo" name="answer2"/>'+question2.correctAnswer+'</li>'+ 
-					 '<li><input type="radio" id="radioThree" name="answer2"/>'+question2.answerChoice2+'</li>'+ 
-					 '<li><input type="radio" id="radioFour" name="answer2"/>'+question2.answerChoice3+'</li>';
+var answerChoices2 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer2"/>'+question2.answerChoice1+'</li>'+
+					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer2"/>'+question2.correctAnswer+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer2"/>'+question2.answerChoice2+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer2"/>'+question2.answerChoice3+'</li>';
 
 var questionChoice3 = '<h3>'+question3.question+'</h3>';
-var answerChoices3 = '<li><input type="radio" id="radioOne" name="answer3"/>'+question3.answerChoice1+'</li>'+
-					 '<li><input type="radio" id="radioTwo" name="answer3"/>'+question3.correctAnswer+'</li>'+ 
-					 '<li><input type="radio" id="radioThree" name="answer3"/>'+question3.answerChoice2+'</li>'+ 
-					 '<li><input type="radio" id="radioFour" name="answer3"/>'+question3.answerChoice3+'</li>';
+var answerChoices3 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer3"/>'+question3.answerChoice1+'</li>'+
+					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer3"/>'+question3.correctAnswer+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer3"/>'+question3.answerChoice2+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer3"/>'+question3.answerChoice3+'</li>';
 
 
 var questionChoice4 = '<h3>'+question4.question+'</h3>';
-var answerChoices4 = '<li><input type="radio" id="radioOne" name="answer4"/>'+question3.answerChoice1+'</li>'+
-					 '<li><input type="radio" id="radioTwo" name="answer4"/>'+question3.correctAnswer+'</li>'+ 
-					 '<li><input type="radio" id="radioThree" name="answer4"/>'+question3.answerChoice2+'</li>'+ 
-					 '<li><input type="radio" id="radioFour" name="answer4"/>'+question3.answerChoice3+'</li>';
+var answerChoices4 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer4"/>'+question3.answerChoice1+'</li>'+
+					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer4"/>'+question3.correctAnswer+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer4"/>'+question3.answerChoice2+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer4"/>'+question3.answerChoice3+'</li>';
 
 
 $('.start-btn').on('click', function (){
@@ -73,10 +73,10 @@ $('.submit-btn').on('click', function() {
 	$('.submit-btn').hide();
 	if ($('#radioTwo').prop("checked")) {
 		$('.alert-success').show();
-		$('.answer-status').append('<li>'+'<span class="glyphicon glyphicon-thumbs-up">'+'</span>'+'</li>').css("color", "green");
+		$('.answer-status').append('<li>'+'<span class="glyphicon glyphicon-thumbs-up animated tada">'+'</span>'+'</li>').css("color", "green");
 	} else {
 		$('.alert-danger').show();
-		$('.answer-status').append('<li>'+'<span class="glyphicon glyphicon-thumbs-down">'+'</span>'+'</li>').css("color", "red");
+		$('.answer-status').append('<li>'+'<span class="glyphicon glyphicon-thumbs-down animated shake">'+'</span>'+'</li>').css("color", "red");
 	}
 	$('.next-btn, .box-one').show();
 })
