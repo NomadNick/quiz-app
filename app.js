@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(".answer-status, .question-area, .answer-choices, .submit-btn, .alert-success, .alert-danger, .answer-status, .start-over-btn, .next-btn").hide();
+	$(".answer-status, .question-area, .answer-choices, .submit-btn, .feedback, .alert-success, .alert-danger, .answer-status, .start-over-btn, .next-btn").hide();
 	$(".start-btn").show();
 });
 
@@ -38,55 +38,67 @@ var question4 = {
 
 var questionChoice1 = '<h3 class="animated bounceInLeft">'+question1.question+'</h3>';
 var answerChoices1 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer1"/>'+question1.answerChoice1+'</li>'+
-					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer1"/>'+question1.correctAnswer+'</li>'+ 
+					 '<li class="correct animated fadeIn"><input type="radio" id="radioTwo" name="answer1"/>'+question1.correctAnswer+'</li>'+ 
 					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer1"/>'+question1.answerChoice2+'</li>'+ 
 					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer1"/>'+question1.answerChoice3+'</li>';
 
-var questionChoice2 = '<h3>'+question2.question+'</h3>';
+var questionChoice2 = '<h3 class="animated bounceInLeft">'+question2.question+'</h3>';
 var answerChoices2 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer2"/>'+question2.answerChoice1+'</li>'+
-					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer2"/>'+question2.correctAnswer+'</li>'+ 
+					 '<li class="correct animated fadeIn"><input type="radio" id="radioTwo" name="answer2"/>'+question2.correctAnswer+'</li>'+ 
 					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer2"/>'+question2.answerChoice2+'</li>'+ 
 					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer2"/>'+question2.answerChoice3+'</li>';
 
-var questionChoice3 = '<h3>'+question3.question+'</h3>';
+var questionChoice3 = '<h3 class="animated bounceInLeft">'+question3.question+'</h3>';
 var answerChoices3 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer3"/>'+question3.answerChoice1+'</li>'+
 					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer3"/>'+question3.correctAnswer+'</li>'+ 
 					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer3"/>'+question3.answerChoice2+'</li>'+ 
 					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer3"/>'+question3.answerChoice3+'</li>';
 
 
-var questionChoice4 = '<h3>'+question4.question+'</h3>';
-var answerChoices4 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer4"/>'+question3.answerChoice1+'</li>'+
-					 '<li class="animated fadeIn"><input type="radio" id="radioTwo" name="answer4"/>'+question3.correctAnswer+'</li>'+ 
-					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer4"/>'+question3.answerChoice2+'</li>'+ 
-					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer4"/>'+question3.answerChoice3+'</li>';
+var questionChoice4 = '<h3 class="animated bounceInLeft">'+question4.question+'</h3>';
+var answerChoices4 = '<li class="animated fadeIn"><input type="radio" id="radioOne" name="answer4"/>'+question4.answerChoice1+'</li>'+
+					 '<li class="correct animated fadeIn"><input type="radio" id="radioTwo" name="answer4"/>'+question4.correctAnswer+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioThree" name="answer4"/>'+question4.answerChoice2+'</li>'+ 
+					 '<li class="animated fadeIn"><input type="radio" id="radioFour" name="answer4"/>'+question4.answerChoice3+'</li>';
 
+var questionsToAppend = [questionChoice1, questionChoice2, questionChoice3, questionChoice4];
+
+var answersToAppend = [answerChoices1, answerChoices2, answerChoices3, answerChoices4];
+
+var i = 0;
 
 $('.start-btn').on('click', function (){
-	$(".question-area").show().append(questionChoice1, answerChoices1);
-	//$(".answer-choices").show().append(answerChoices1);
+	$(".question-area").show()
+	$(".question-area").append(questionsToAppend[i], answersToAppend[i]);
 	$(".submit-btn, .answer-status").show();
 	$(".start-btn, .lead").hide();
 });
 
 $('.submit-btn').on('click', function() {
 	$('.submit-btn').hide();
+	$('.feedback').show();
 	if ($('#radioTwo').prop("checked")) {
-		$('.alert-success').show();
+		$('.feedback').append('<div class="alert alert-success animated fadeIn" role="alert">'+"That's correct, great job!"+'</div>');
 		$('.answer-status').append('<li>'+'<span class="glyphicon glyphicon-thumbs-up animated tada">'+'</span>'+'</li>').css("color", "green");
 	} else {
-		$('.alert-danger').show();
+		$('.feedback').append('<div class="alert alert-danger animated fadeIn" role="alert">'+"Sorry, try again on the next round."+'</div>');
 		$('.answer-status').append('<li>'+'<span class="glyphicon glyphicon-thumbs-down animated shake">'+'</span>'+'</li>').css("color", "red");
 	}
-	$('.next-btn, .box-one').show();
+	$('.next-btn').show();
 })
 
+	$('.next-btn').on('click', function() {
+	$(".question-area, .feedback, .answer-status").empty();
+	i++;
+	$('.glyphicon, .next-btn').hide();
+	if(i <= 3) {
+	$(".question-area").append(questionsToAppend[i], answersToAppend[i]);
+	$(".submit-btn").show();
+	} else {
+	$('.start-over-btn').show();
+	}
+})
 
-// $(".question-area").append(questionChoice2);
-// $(".answer-choices").append(answerChoices2);
-
-// $(".question-area").append(questionChoice3);
-// $(".answer-choices").append(answerChoices3);
-
-// $(".question-area").append(questionChoice4);
-// $(".answer-choices").append(answerChoices4);
+$('.start-over-btn').on('click', function() {
+	location.reload();
+})
